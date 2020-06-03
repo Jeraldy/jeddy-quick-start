@@ -17,25 +17,33 @@ Then open: [http://localhost:9000/](http://localhost:9000/)
 ```js
 import { Jeddy, StatefulWidget } from "jeddy";
 import Center from "jeddy/layouts/Center";
-import Button from "jeddy/widgets/Button";
+import Button from "jeddy/dom/Button";
 
 class App extends StatefulWidget {
   constructor() {
     super()
-    this.state = { value: 0 }
+    this.state = { size: 100 }
     return this.connect()
   }
 
   render() {
     return Center({
       child: Button({
-        label: `Counter: ${this.state.value}`,
-        onclick: () => this.setState({ value: this.state.value + 1 })
+        children: [`Click:${this.state.size}px`],
+        onclick: () => this.setState({ size: this.state.size + 50 }),
+        style: {
+          height: `${this.state.size}px`,
+          width: `${this.state.size}px`,
+          borderRadius: '100%',
+          border: 'none',
+          outlineColor: 'transparent',
+          transition: 'height 0.3s, width 0.3s'
+        },
       })
     })
   }
 }
 
-Jeddy.Init(new App());
+Jeddy.Init({ app: new App() });
 ```
 
