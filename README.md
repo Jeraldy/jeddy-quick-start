@@ -2,10 +2,10 @@
 
 ```sh
 # Clone the Quick Start repository
-$ git clone https://github.com/Jeraldy/jeddy-redux-quick-start
+$ git clone https://github.com/Jeraldy/jeddy-quick-start
 
 # Go into the repository
-$ cd jeddy-redux-quick-start
+$ cd jeddy-quick-start
 
 # Install the dependencies and run
 $ npm install && npm start
