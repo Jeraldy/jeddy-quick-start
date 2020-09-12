@@ -1,30 +1,61 @@
 import { Jeddy, StatefulWidget } from "jeddy";
+import Div from "jeddy/dom/Div";
 import Center from "jeddy/layouts/Center";
 import Button from "jeddy/dom/Button";
+import Br from "jeddy/dom/Br";
+import './index.css';
 
-class App extends StatefulWidget {
-  constructor() {
-    super()
-    this.state = { size: 100 }
-    return this.connect()
-  }
+class Main extends StatefulWidget {
+    constructor() {
+        super()
+        this.state = {
+            counter: 0
+        }
+        return this.connect()
+    }
 
-  render() {
-    return Center({
-      child: Button({
-        children: [`Click:${this.state.size}px`],
-        onclick: () => this.setState({ size: this.state.size + 50 }),
-        style: {
-          height: `${this.state.size}px`,
-          width: `${this.state.size}px`,
-          borderRadius: '100%',
-          border: 'none',
-          outlineColor: 'transparent',
-          transition: 'height 0.3s, width 0.3s'
-        },
-      })
-    })
-  }
+    handleIncrement() {
+        this.setState({
+            counter: this.state.counter + 1
+        })
+    }
+
+    handleDecrement() {
+        this.setState({
+            counter: this.state.counter - 1
+        })
+    }
+
+    render() {
+        return Center({
+            child: Div({
+                children: [
+                    Div({
+                        children: ['Counter', Br(), `${this.state.counter}`,],
+                        style: {
+                            textAlign: 'center',
+                            fontSize: '6rem',
+                            fontWeight: 'bold'
+                        }
+                    }),
+                    Div({
+                        children: [
+                            Button({
+                                class: 'btn',
+                                children: ["Increment"],
+                                onClick: () => this.handleIncrement()
+                            }),
+                            Button({
+                                class: 'btn',
+                                children: ["Decrement"],
+                                onClick: () => this.handleDecrement()
+                            }),
+                        ]
+                    })
+                ]
+            })
+        })
+    }
 }
 
-Jeddy.Init({ app: new App() });
+Jeddy.Init({ app: new Main() });
