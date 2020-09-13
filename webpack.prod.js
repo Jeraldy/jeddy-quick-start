@@ -4,7 +4,7 @@ const path = require('path');
 
 module.exports = merge(common, {
   mode: 'production',
-  devtool: 'source-map',
+  devtool: false,
   output: {
     filename: 'app.bundle.js',
     path: path.resolve(__dirname, 'build'),
