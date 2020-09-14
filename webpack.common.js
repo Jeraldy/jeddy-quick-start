@@ -12,6 +12,17 @@ module.exports = {
         ],
       },
       {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          'file-loader',
+        ],
+      },
+      {
         test: /\.scss$/,
         use: [
           {
@@ -20,6 +31,7 @@ module.exports = {
               name: 'bundle.css',
             },
           },
+
           { loader: 'extract-loader' },
           { loader: 'css-loader' },
           {
