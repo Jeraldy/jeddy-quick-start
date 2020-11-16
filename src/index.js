@@ -8,10 +8,7 @@ import './index.css';
 class Main extends StatefulWidget {
     constructor() {
         super()
-        this.state = {
-            counter: 0
-        }
-        return this.connect()
+        this.state = { counter: 0 }
     }
 
     handleIncrement() {
