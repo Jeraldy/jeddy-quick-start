@@ -1,7 +1,7 @@
 {
-  "name": "jeddy-redux-quick-start",
+  "name": "jeddy-quick-start",
   "version": "1.0.0",
-  "description": "jeddy-redux-quick-start",
+  "description": "jeddy-quick-start",
   "private": true,
   "scripts": {
     "start": "jeddy-scripts start",
